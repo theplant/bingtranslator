@@ -22,7 +22,7 @@ func main() {
 	btr.SetCredentials(*clientId, *clientSecret)
 
 	// single text
-	var text string = "1. Start writing an entry\n\n2. Qortex continuously update the X most \"interesting\" words as you write"
+	var text string = "Let's see how you are translating this."
 	translations, err := btr.Translate("en", "de", text, btr.INPUT_TEXT)
 	if err != nil {
 		fmt.Println(err)
@@ -31,7 +31,7 @@ func main() {
 
 	// single html
 	var html string = `<div class="stream-content-body markdown-style">
-					<p><span class="j-show-object-content" data-object-id="5101f5963c58163cf5003eb4" data-org-id="5018d345558fbe46c4000001">@<span>Florian von Bock</span></span> how hard would it be to extend the search system to spit out the high value terms in a piece of text? I’m imagining:</p>
+					<p><span class="j-show-object-content" data-object-id="foo" data-org-id="bar">@<span>Name</span></span>How hard would it be to extend the search system to spit out the high value terms in a piece of text?</p>
 				</div>`
 
 	translations, err = btr.Translate("en", "de", html, btr.INPUT_HTML)
