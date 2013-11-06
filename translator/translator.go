@@ -90,14 +90,19 @@ it expired.
 */
 func Translate(from string, to string, input interface{}, inputType string) (translations []*Translation, err error) {
 	// check the language codes
-	to = strings.ToLower(to)
-	if _, notsupported := supportedLanguages[to]; !notsupported {
-		err = errors.New(fmt.Sprintf("Language Code %s is currently not supported.", to))
-		return
-	}
 	from = strings.ToLower(from)
 	if _, notsupported := supportedLanguages[from]; !notsupported {
-		err = errors.New(fmt.Sprintf("Language Code %s is currently not supported.", from))
+		// if the source lang code is not set language detection will be
+		// attempted on the API side
+		if from != "" {
+			err = errors.New(fmt.Sprintf("Source Language Code %s is currently not supported.", from))
+			return
+		}
+	}
+
+	to = strings.ToLower(to)
+	if _, notsupported := supportedLanguages[to]; !notsupported {
+		err = errors.New(fmt.Sprintf("Target Language Code %s is currently not supported.", to))
 		return
 	}
 
