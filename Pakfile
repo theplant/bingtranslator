@@ -1,0 +1,7 @@
+packages:
+- name: github.com/fvbock/gorequests
+
+# Pak doesn't support package inside sub-dir of a git repo, so
+# you have to do the following manually
+# go get github.com/garyburd/redigo/redis
+# cd $GOPATH/src/github.com/garyburd/redigo/ && git reset 9c59bb96d4de2cf3ff581c862630b676d54d7343 --hard && cd -
