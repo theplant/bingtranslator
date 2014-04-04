@@ -30,7 +30,7 @@ var supportedLanguages = map[string]string{
 	"hu":       "Hungarian -- magyar",
 	"id":       "Indonesian -- Indonesia",
 	"it":       "Italian -- italiano",
-	"ja":       "Japanese -- 日本の",
+	"ja":       "Japanese -- 日本語",
 	"tlh":      "Klingon",
 	"tlh-qaak": "Klingon (pIqaD)",
 	"ko":       "Korean -- 한국의",
