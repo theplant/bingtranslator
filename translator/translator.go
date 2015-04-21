@@ -3,11 +3,12 @@ package bingtranslator
 import (
 	"errors"
 	"fmt"
-	"github.com/fvbock/gorequests"
 	"html"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/fvbock/gorequests"
 )
 
 const (
@@ -55,6 +56,10 @@ func getToken() (tok *AccessToken, err error) {
 	r := gorequests.PostForm(AUTH_ENDPOINT, nil, data, -1)
 	if r.Error != nil {
 		err = errors.New(fmt.Sprintf("Error retrieving AccessToken:", r.Error))
+		return
+	}
+	if r.Status == 400 {
+		err = errors.New("Client secret is invalid")
 		return
 	}
 
