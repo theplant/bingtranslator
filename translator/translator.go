@@ -191,7 +191,7 @@ func requestXML(from string, to string, input []string, inputType string) string
 	texts := func(in []string) string {
 		var out string
 		for _, t := range in {
-			out += fmt.Sprintf("<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\">%s</string>", t)
+			out += fmt.Sprintf("<string xmlns=\"http://schemas.microsoft.com/2003/10/Serialization/Arrays\"><![CDATA[%s]]></string>", t)
 		}
 		return out
 	}(input)
